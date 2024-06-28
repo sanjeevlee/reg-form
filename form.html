@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);
+        }
+.container{ 
+    width: 20%;
+    height: 650px;
+    border-style: groove;
+    padding-left: 20px;
+    margin-left: 550px;
+    background: linear-gradient(to right, #0066ff 0%, #66ffff 100%);
+    border-radius: 20px;
+    margin-top: 10px;
+    border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #a36b87;
+}
+.button{
+    border-style: groove;
+    border-radius: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1><i>Registration Form</i></h1>
+
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" autofocus>
+    <p id = num1 style="color: red;"></p>
+
+    <label for="phone">phone number:</label><br>
+    <input type="tel" id="phone" name="phone">
+    <p id = num2 style="color: red;"></p> 
+
+    
+    <label for="email">email:</label><br>
+     <input type="email" id="email" name="email" autofocus>
+     <p id = mail1 style = "color: red;"></p>
+
+     <label for="password">Password:</label><br>
+     <input type="password" id="pwd" name="pwd" autofocus>
+     <p id = pass1 style="color: red;"></p>
+
+     <label for="cpassword">Confirm Password:</label><br>
+     <input type="password" id="cpwd" name="cpwd" autofocus>
+     <p id = pass2 style="color: red;"></p> 
+
+      <label>Gender</label><br>
+     <input type="radio" id="male" name="radio" value="">
+     <label for="male">MALE</label>
+     <input type="radio" id="female" name="radio" value="">
+     <label for="female">FEMALE</label>
+     <p id = check style="color: red;"></p>
+
+
+     <label>Languages</label><br>
+     <input type="checkbox" id="Tamil1" name="a" value="TAMIL">
+     <label for="Tamil1">TAMIL</label>
+     <input type="checkbox" id="English1" name="b" value="ENGLISH">
+     <label for="English1">ENGLISH</label>
+     <input type="checkbox" id="Hindi1" name="c" value="HINDI">
+     <label for="Hindi1">HINDI</label>
+     <p id = box1 style="color: red;"></p>
+
+
+     <label>Date of Birth :</label>
+     <input type="date" id="date" name="datemax"><br><br>
+
+     <label>Address:</label><br>
+     <textarea id="address" rows="3" cols="30"></textarea><br><br>
+                     
+     <button type="submit" onclick="myfunction()" style="margin-left: 110px;">Submit</button>
+      
+
+<script>
+        function myfunction(){
+
+let name=document.getElementById('fname').value
+ let patterns = /^[a-zA-Z ]{2,30}$/;
+
+if (name == "")
+{
+    document.getElementById("num1").innerHTML="enter your name"
+}
+else if(!patterns.test(name)){
+    document.getElementById("num1").innerHTML="enter a valid name"
+}
+else{
+    document.getElementById("num1").innerHTML=""
+}
+// ---------------  next section ---------------
+
+let phone = document.getElementById('phone').value
+let pattern = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/;
+if(phone == "")
+{
+    document.getElementById("num2").innerHTML="enter your number"
+}
+else if(!pattern.test(phone)){
+    document.getElementById("num2").innerHTML="enter a valid number"
+}
+else{
+    document.getElementById("num2").innerHTML=""
+}
+//--------------  next section --------------------
+
+let mail = document.getElementById('email').value
+let pattern1 = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+if(mail == "")
+{
+    document.getElementById("mail1").innerHTML="enter your mail"
+}
+else if(!pattern1.test(mail)){
+    document.getElementById("mail1").innerHTML="enter a valid mail"
+}
+else{
+    document.getElementById("mail1").innerHTML=""
+}
+
+// ---------------  next section -------------------
+let password = document.getElementById('pwd').value
+let p = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+if(password == "")
+{
+    document.getElementById("pass1").innerHTML="enter your password"
+}
+else if(!p.test(password)){
+    document.getElementById("pass1").innerHTML="enter your correct password"
+}
+else{
+    document.getElementById("pass1").innerHTML=""
+}
+// ---------------  next section -------------------
+let  cpassword = document.getElementById('cpwd').value
+let p1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+if(cpassword == "")
+{
+    document.getElementById("pass2").innerHTML="confirm your password"
+}
+else if(password != cpassword){
+    document.getElementById("pass2").innerHTML="enter your correct password"
+}
+else{
+    document.getElementById("pass2").innerHTML=""
+}
+// ----------------  next section --------------------
+if(male.checked){
+    document.getElementById("check").innerHTML=""
+}
+else if(female.checked){
+    document.getElementById("check").innerHTML=""
+}
+else{
+    document.getElementById("check").innerHTML="choose any one of the option"
+}
+//------------------ next section ---------------------
+
+if(male.checked){
+    document.getElementById("rad").innerHTML=""
+}
+else if(female.checked){
+    document.getElementById("rad").innerHTML=""
+}
+else{
+    document.getElementById("rad").innerHTML="choose any one of the option"
+}
+// ---------------  next section ---------------
+if(a.checked==false){
+            document.getElementById("box1").innerHTML="choose the option"
+        }
+        else if(English1.checked==false){
+            document.getElementById("box1").innerHTML=""
+        }
+        else if(Hindi1.checked==false){
+            document.getElementById("box1").innerHTML=""
+        }
+        else{
+            document.getElementById("box1").innerHTML=""
+        }
+    }
+
+</script>
+</div>
+
+</body>
+</html>
